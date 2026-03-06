@@ -20,10 +20,15 @@ public class AtividadeService {
     }
     
     public Atividade removerAtividades(String nomeLista) {
-        
+        ListaDeAtividades lista = listaService.buscarLista(nomeLista);
+        if (lista.espiar() == null) {
+            throw new IllegalArgumentException("A lista está vazia.");
+        }
+        return lista.remover();
     }
     
     public Atividade espiarAtividade(String nomeLista) {
-        
+        ListaDeAtividades lista = listaService.buscarLista(nomeLista);
+        return lista.espiar();
     }
 }

@@ -34,7 +34,7 @@ public class Pilha {
     public Atividade excluir() {
         No aux = fim;
         
-        if(inicio == fim) {
+        if(inicio == fim && fim != null) {
             inicio = null;
             fim = null;
         } else {

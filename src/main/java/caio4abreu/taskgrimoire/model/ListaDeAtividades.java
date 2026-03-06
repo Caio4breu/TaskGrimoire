@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package caio4abreu.taskgrimoire.model;
+
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  *
  * @author Caio 4breu
  */
 public class ListaDeAtividades {
+    private Queue<Atividade> fila;
+    private Stack<Atividade> pilha;
     
+    public ListaDeAtividades(Queue<Atividade> fila, Stack<Atividade> pilha) {
+        this.f
+    }
 }

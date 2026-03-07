@@ -1,8 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package caio4abreu.taskgrimoire.view;
+
+import caio4abreu.taskgrimoire.controller.ListaController;
+import caio4abreu.taskgrimoire.model.ListaDeAtividades;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,12 +11,28 @@ package caio4abreu.taskgrimoire.view;
 public class TelaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaPrincipal.class.getName());
+    private ListaController listaController = new ListaController();
 
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        carregarListas();
+    }
+
+    private void carregarListas() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nome");
+        model.addColumn("Tipo");
+        
+        for (ListaDeAtividades l : listaController.listarTodas()) {
+            model.addRow(new Object[]{
+                l.getNome(),
+                l.getTipo()
+            });
+        }
+        jTabelaListas.setModel(model);
     }
 
     /**
@@ -28,17 +44,114 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPHeader = new javax.swing.JPanel();
+        jLCaio4breu = new javax.swing.JLabel();
+        jLNomeProjeto = new javax.swing.JLabel();
+        jPBody = new javax.swing.JPanel();
+        jScrollPane = new javax.swing.JScrollPane();
+        jTabelaListas = new javax.swing.JTable();
+        jBtnCriarLista = new javax.swing.JButton();
+        jBtnAbrirLista = new javax.swing.JButton();
+        jBtnDeletarLista = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLCaio4breu.setFont(new java.awt.Font("Nimbus Mono", 2, 14)); // NOI18N
+        jLCaio4breu.setText("criado por: Caio4breu");
+
+        jLNomeProjeto.setFont(new java.awt.Font("Nimbus Mono", 1, 36)); // NOI18N
+        jLNomeProjeto.setText("Task Grimoire");
+
+        javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
+        jPHeader.setLayout(jPHeaderLayout);
+        jPHeaderLayout.setHorizontalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLCaio4breu)
+                .addGap(25, 25, 25))
+            .addGroup(jPHeaderLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLNomeProjeto)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPHeaderLayout.setVerticalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLNomeProjeto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLCaio4breu)
+                .addGap(17, 17, 17))
+        );
+
+        jTabelaListas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "colunaNome", "colunaTipo"
+            }
+        ));
+        jScrollPane.setViewportView(jTabelaListas);
+
+        jBtnCriarLista.setText("Criar nova lista");
+
+        jBtnAbrirLista.setText("Abrir lista");
+
+        jBtnDeletarLista.setText("Deletar lista");
+
+        javax.swing.GroupLayout jPBodyLayout = new javax.swing.GroupLayout(jPBody);
+        jPBody.setLayout(jPBodyLayout);
+        jPBodyLayout.setHorizontalGroup(
+            jPBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPBodyLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addGroup(jPBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBtnDeletarLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnAbrirLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnCriarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        jPBodyLayout.setVerticalGroup(
+            jPBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPBodyLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPBodyLayout.createSequentialGroup()
+                        .addComponent(jBtnCriarLista)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnAbrirLista)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnDeletarLista))
+                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -70,5 +183,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAbrirLista;
+    private javax.swing.JButton jBtnCriarLista;
+    private javax.swing.JButton jBtnDeletarLista;
+    private javax.swing.JLabel jLCaio4breu;
+    private javax.swing.JLabel jLNomeProjeto;
+    private javax.swing.JPanel jPBody;
+    private javax.swing.JPanel jPHeader;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JTable jTabelaListas;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,14 +8,14 @@ package caio4abreu.taskgrimoire.view;
  *
  * @author Caio 4breu
  */
-public class TelaAdicionarAtividade extends javax.swing.JFrame {
+public class TelaGerenciarLista extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaAdicionarAtividade.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaGerenciarLista.class.getName());
 
     /**
      * Creates new form TelaAdicionarAtividade
      */
-    public TelaAdicionarAtividade() {
+    public TelaGerenciarLista() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class TelaAdicionarAtividade extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaAdicionarAtividade().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaGerenciarLista().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

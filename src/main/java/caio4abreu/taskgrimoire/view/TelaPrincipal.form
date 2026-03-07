@@ -152,6 +152,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Criar nova lista"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCriarListaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBtnAbrirLista">
           <Properties>
@@ -162,6 +165,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Deletar lista"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnDeletarListaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

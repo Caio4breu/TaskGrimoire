@@ -2,6 +2,7 @@ package caio4abreu.taskgrimoire.view;
 
 import caio4abreu.taskgrimoire.controller.ListaController;
 import caio4abreu.taskgrimoire.model.ListaDeAtividades;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -99,10 +100,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane.setViewportView(jTabelaListas);
 
         jBtnCriarLista.setText("Criar nova lista");
+        jBtnCriarLista.addActionListener(this::jBtnCriarListaActionPerformed);
 
         jBtnAbrirLista.setText("Abrir lista");
 
         jBtnDeletarLista.setText("Deletar lista");
+        jBtnDeletarLista.addActionListener(this::jBtnDeletarListaActionPerformed);
 
         javax.swing.GroupLayout jPBodyLayout = new javax.swing.GroupLayout(jPBody);
         jPBody.setLayout(jPBodyLayout);
@@ -156,6 +159,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnCriarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCriarListaActionPerformed
+        TelaNovaLista tela = new TelaNovaLista(this);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jBtnCriarListaActionPerformed
+
+    private void jBtnDeletarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeletarListaActionPerformed
+        int linhaSelecionada = jTabelaListas.getSelectedRow();
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Selecione uma lista para deletar.");
+            return;
+        }
+        String nome = (String) jTabelaListas.getValueAt(linhaSelecionada, 0);
+        String mensagem = listaController.deletarLista(nome);
+        JOptionPane.showMessageDialog(this, mensagem);
+        carregarListas();
+    }//GEN-LAST:event_jBtnDeletarListaActionPerformed
 
     /**
      * @param args the command line arguments

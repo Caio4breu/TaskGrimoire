@@ -35,15 +35,16 @@ public class TelaNovaLista extends javax.swing.JFrame {
         jPHeader = new javax.swing.JPanel();
         jLCaio4breu = new javax.swing.JLabel();
         jLNomeProjeto = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jBtnGerenciarListas = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTAExplicativo = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         jTFRecebeNomeLista = new javax.swing.JTextField();
         jCBTipoListas = new javax.swing.JComboBox<>();
         jBtnConfirmar = new javax.swing.JButton();
         jBtnCancelar = new javax.swing.JButton();
         jBtnTelaPrincipal = new javax.swing.JButton();
-        jBtnGerenciarListas = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTAExplicativo = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,17 @@ public class TelaNovaLista extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        jBtnGerenciarListas.setText("Gerenciar Listas");
+        jBtnGerenciarListas.addActionListener(this::jBtnGerenciarListasActionPerformed);
+
+        jTAExplicativo.setColumns(20);
+        jTAExplicativo.setRows(5);
+        jTAExplicativo.setText("FILA (FIFO): o primeiro a entrar é o primeiro a sair.\nIdeal para tarefas que devem ser feitas na ordem em que aparecem.\n\nPILHA (LIFO): o último a entrar é o primeiro a sair.\nIdeal para tarefas onde a mais recente tem prioridade.");
+        jScrollPane1.setViewportView(jTAExplicativo);
+
+        jLabel1.setFont(new java.awt.Font("Nimbus Mono", 0, 14)); // NOI18N
+        jLabel1.setText("Criação de novas listas");
+
         jTFRecebeNomeLista.setText("Nome da nova lista");
 
         jCBTipoListas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Modo Fila", "Modo Pilha" }));
@@ -90,16 +102,53 @@ public class TelaNovaLista extends javax.swing.JFrame {
         jBtnTelaPrincipal.setText("Tela Principal");
         jBtnTelaPrincipal.addActionListener(this::jBtnTelaPrincipalActionPerformed);
 
-        jBtnGerenciarListas.setText("Gerenciar Listas");
-        jBtnGerenciarListas.addActionListener(this::jBtnGerenciarListasActionPerformed);
-
-        jTAExplicativo.setColumns(20);
-        jTAExplicativo.setRows(5);
-        jTAExplicativo.setText("FILA (FIFO): o primeiro a entrar é o primeiro a sair.\nIdeal para tarefas que devem ser feitas na ordem em que aparecem.\n\nPILHA (LIFO): o último a entrar é o primeiro a sair.\nIdeal para tarefas onde a mais recente tem prioridade.");
-        jScrollPane1.setViewportView(jTAExplicativo);
-
-        jLabel1.setFont(new java.awt.Font("Nimbus Mono", 0, 14)); // NOI18N
-        jLabel1.setText("Criação de novas listas");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jBtnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTFRecebeNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jCBTipoListas, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jBtnTelaPrincipal)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnGerenciarListas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnTelaPrincipal)
+                    .addComponent(jBtnGerenciarListas))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFRecebeNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBTipoListas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnConfirmar)
+                    .addComponent(jBtnCancelar))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,28 +159,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(245, 245, 245)
-                                .addComponent(jBtnTelaPrincipal)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBtnGerenciarListas))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jBtnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTFRecebeNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jCBTipoListas, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(jLabel1))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -139,23 +167,9 @@ public class TelaNovaLista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnTelaPrincipal)
-                    .addComponent(jBtnGerenciarListas))
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFRecebeNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBTipoListas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnConfirmar)
-                    .addComponent(jBtnCancelar))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -241,6 +255,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
     private javax.swing.JLabel jLNomeProjeto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPHeader;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTAExplicativo;
     private javax.swing.JTextField jTFRecebeNomeLista;

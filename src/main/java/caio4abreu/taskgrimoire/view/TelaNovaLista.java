@@ -1,8 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package caio4abreu.taskgrimoire.view;
+
+import caio4abreu.taskgrimoire.controller.ListaController;
+import caio4abreu.taskgrimoire.model.TipoEstrutura;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,12 +11,16 @@ package caio4abreu.taskgrimoire.view;
 public class TelaNovaLista extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaNovaLista.class.getName());
+    private TelaPrincipal telaPai;
+    private ListaController listaController = new ListaController();
 
     /**
      * Creates new form TelaNovaLista
      */
-    public TelaNovaLista() {
+    public TelaNovaLista(TelaPrincipal telaPai) {
+        this.telaPai = telaPai;
         initComponents();
+        jTAExplicativo.setEditable(false);
     }
 
     /**
@@ -28,21 +32,179 @@ public class TelaNovaLista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPHeader = new javax.swing.JPanel();
+        jLCaio4breu = new javax.swing.JLabel();
+        jLNomeProjeto = new javax.swing.JLabel();
+        jTFRecebeNomeLista = new javax.swing.JTextField();
+        jCBTipoListas = new javax.swing.JComboBox<>();
+        jBtnConfirmar = new javax.swing.JButton();
+        jBtnCancelar = new javax.swing.JButton();
+        jBtnTelaPrincipal = new javax.swing.JButton();
+        jBtnGerenciarListas = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTAExplicativo = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLCaio4breu.setFont(new java.awt.Font("Nimbus Mono", 2, 14)); // NOI18N
+        jLCaio4breu.setText("criado por: Caio4breu");
+
+        jLNomeProjeto.setFont(new java.awt.Font("Nimbus Mono", 1, 36)); // NOI18N
+        jLNomeProjeto.setText("Task Grimoire");
+
+        javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
+        jPHeader.setLayout(jPHeaderLayout);
+        jPHeaderLayout.setHorizontalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLCaio4breu)
+                .addGap(25, 25, 25))
+            .addGroup(jPHeaderLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLNomeProjeto)
+                .addContainerGap(464, Short.MAX_VALUE))
+        );
+        jPHeaderLayout.setVerticalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLNomeProjeto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLCaio4breu)
+                .addGap(17, 17, 17))
+        );
+
+        jTFRecebeNomeLista.setText("Nome da nova lista");
+
+        jCBTipoListas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Modo Fila", "Modo Pilha" }));
+        jCBTipoListas.addActionListener(this::jCBTipoListasActionPerformed);
+
+        jBtnConfirmar.setText("Confirmar");
+        jBtnConfirmar.addActionListener(this::jBtnConfirmarActionPerformed);
+
+        jBtnCancelar.setText("Cancelar");
+        jBtnCancelar.addActionListener(this::jBtnCancelarActionPerformed);
+
+        jBtnTelaPrincipal.setText("Tela Principal");
+        jBtnTelaPrincipal.addActionListener(this::jBtnTelaPrincipalActionPerformed);
+
+        jBtnGerenciarListas.setText("Gerenciar Listas");
+        jBtnGerenciarListas.addActionListener(this::jBtnGerenciarListasActionPerformed);
+
+        jTAExplicativo.setColumns(20);
+        jTAExplicativo.setRows(5);
+        jTAExplicativo.setText("FILA (FIFO): o primeiro a entrar é o primeiro a sair.\nIdeal para tarefas que devem ser feitas na ordem em que aparecem.\n\nPILHA (LIFO): o último a entrar é o primeiro a sair.\nIdeal para tarefas onde a mais recente tem prioridade.");
+        jScrollPane1.setViewportView(jTAExplicativo);
+
+        jLabel1.setFont(new java.awt.Font("Nimbus Mono", 0, 14)); // NOI18N
+        jLabel1.setText("Criação de novas listas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(245, 245, 245)
+                                .addComponent(jBtnTelaPrincipal)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBtnGerenciarListas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jBtnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTFRecebeNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jCBTipoListas, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel1))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnTelaPrincipal)
+                    .addComponent(jBtnGerenciarListas))
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFRecebeNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBTipoListas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnConfirmar)
+                    .addComponent(jBtnCancelar))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
+        String nome = jTFRecebeNomeLista.getText();
+        String tipoSelecionado = (String) jCBTipoListas.getSelectedItem();
+        
+        if (tipoSelecionado.equals("---")) {
+            JOptionPane.showConfirmDialog(this, "Selecione um tipo de estrutura.");
+            return;
+        }
+        
+        TipoEstrutura tipo;
+        if (tipoSelecionado.equals("Modo Fila")) {
+            tipo = TipoEstrutura.FILA;
+        } else {
+            tipo = TipoEstrutura.PILHA;
+        }
+        
+        String mensagem = listaController.criarLista(nome, tipo);
+        JOptionPane.showMessageDialog(this, mensagem);
+        
+        if (telaPai != null) {
+            telaPai.carregarListas();
+        }
+        this.dispose();
+    }//GEN-LAST:event_jBtnConfirmarActionPerformed
+
+    private void jCBTipoListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBTipoListasActionPerformed
+        
+    }//GEN-LAST:event_jCBTipoListasActionPerformed
+
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+        jTFRecebeNomeLista.setText("");
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
+
+    private void jBtnTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTelaPrincipalActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnTelaPrincipalActionPerformed
+
+    private void jBtnGerenciarListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGerenciarListasActionPerformed
+        TelaGerenciarLista tela = new TelaGerenciarLista();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnGerenciarListasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -66,9 +228,21 @@ public class TelaNovaLista extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaNovaLista().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaNovaLista(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnCancelar;
+    private javax.swing.JButton jBtnConfirmar;
+    private javax.swing.JButton jBtnGerenciarListas;
+    private javax.swing.JButton jBtnTelaPrincipal;
+    private javax.swing.JComboBox<String> jCBTipoListas;
+    private javax.swing.JLabel jLCaio4breu;
+    private javax.swing.JLabel jLNomeProjeto;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPHeader;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTAExplicativo;
+    private javax.swing.JTextField jTFRecebeNomeLista;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,7 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         carregarListas();
     }
 
-    private void carregarListas() {
+    public void carregarListas() {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Nome");
         model.addColumn("Tipo");

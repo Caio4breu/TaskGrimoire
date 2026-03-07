@@ -4,6 +4,13 @@
  */
 package caio4breu.taskgrimoire.view;
 
+import caio4breu.taskgrimoire.controller.AtividadeController;
+import caio4breu.taskgrimoire.controller.ListaController;
+import caio4breu.taskgrimoire.model.Atividade;
+import caio4breu.taskgrimoire.model.ListaDeAtividades;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Caio 4breu
@@ -12,6 +19,8 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaGerenciarLista.class.getName());
     private String nomeLista;
+    private AtividadeController atividadeController = new AtividadeController();
+    private ListaController listaController = new ListaController();
 
     /**
      * Creates new form TelaAdicionarAtividade
@@ -19,6 +28,28 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
     public TelaGerenciarLista(String nomeLista) {
         this.nomeLista = nomeLista;
         initComponents();
+        carregarDados();
+    }
+    
+    public void carregarDados(){
+        if (nomeLista == null) return;
+        ListaDeAtividades lista = listaController.buscarLista(nomeLista);
+        jLNomeLista.setText(lista.getNome());
+        jLTipoLista.setText(lista.getTipo().toString());
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nome");
+        model.addColumn("Descrição");
+        model.addColumn("Data de Criação");
+        
+        jTAtividades.setModel(model);
+        
+        Atividade proxima = atividadeController.espiarAtividade(nomeLista);
+        if (proxima != null) {
+            jLAtividadeAtual.setText("Próxima: " + proxima.getTitulo());
+        } else {
+            jLAtividadeAtual.setText("Nenhuma atividade na lista");
+        }
     }
 
     /**
@@ -222,11 +253,17 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnTelaNovaListaActionPerformed
 
     private void jBtnConcluirAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConcluirAtividadeActionPerformed
-        // TODO add your handling code here:
+        String mensagem = atividadeController.removerAtividade(nomeLista);
+        JOptionPane.showMessageDialog(this, mensagem);
+        carregarDados();
     }//GEN-LAST:event_jBtnConcluirAtividadeActionPerformed
 
     private void jBtnRegistrarAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRegistrarAtividadeActionPerformed
-        // TODO add your handling code here:
+        String titulo = jTFNovaAtividade.getText();
+        String descricao = jTADescricao.getText();
+        String mensagem = atividadeController.adicionarAtividade(nomeLista, titulo, descricao);
+        JOptionPane.showMessageDialog(this, mensagem);
+        carregarDados();
     }//GEN-LAST:event_jBtnRegistrarAtividadeActionPerformed
 
     private void jTFNovaAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNovaAtividadeActionPerformed

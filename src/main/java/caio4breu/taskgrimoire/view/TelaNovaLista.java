@@ -215,7 +215,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnTelaPrincipalActionPerformed
 
     private void jBtnGerenciarListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGerenciarListasActionPerformed
-        TelaGerenciarLista tela = new TelaGerenciarLista();
+        TelaGerenciarLista tela = new TelaGerenciarLista(null);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnGerenciarListasActionPerformed

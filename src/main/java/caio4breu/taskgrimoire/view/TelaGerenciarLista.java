@@ -11,11 +11,13 @@ package caio4breu.taskgrimoire.view;
 public class TelaGerenciarLista extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaGerenciarLista.class.getName());
+    private String nomeLista;
 
     /**
      * Creates new form TelaAdicionarAtividade
      */
-    public TelaGerenciarLista() {
+    public TelaGerenciarLista(String nomeLista) {
+        this.nomeLista = nomeLista;
         initComponents();
     }
 
@@ -31,6 +33,19 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
         jPHeader = new javax.swing.JPanel();
         jLCaio4breu = new javax.swing.JLabel();
         jLNomeProjeto = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLNomeLista = new javax.swing.JLabel();
+        jLTipoLista = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTAtividades = new javax.swing.JTable();
+        jLAtividadeAtual = new javax.swing.JLabel();
+        jTFNovaAtividade = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTADescricao = new javax.swing.JTextArea();
+        jBtnRegistrarAtividade = new javax.swing.JButton();
+        jBtnTelaPrincipal = new javax.swing.JButton();
+        jBtnTelaNovaLista = new javax.swing.JButton();
+        jBtnConcluirAtividade = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,13 +78,122 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        jLNomeLista.setFont(new java.awt.Font("Nimbus Mono", 1, 24)); // NOI18N
+        jLNomeLista.setText("jLNomeLista");
+
+        jLTipoLista.setFont(new java.awt.Font("Nimbus Mono", 3, 18)); // NOI18N
+        jLTipoLista.setText("jLTipoLista");
+
+        jTAtividades.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nome", "Descrição", "Data de Criação"
+            }
+        ));
+        jScrollPane1.setViewportView(jTAtividades);
+
+        jLAtividadeAtual.setText("jLAtividadeAtual");
+
+        jTFNovaAtividade.setText("Registre uma nova atividade");
+        jTFNovaAtividade.addActionListener(this::jTFNovaAtividadeActionPerformed);
+
+        jTADescricao.setColumns(20);
+        jTADescricao.setRows(5);
+        jScrollPane2.setViewportView(jTADescricao);
+
+        jBtnRegistrarAtividade.setText("Registrar Atividade");
+        jBtnRegistrarAtividade.addActionListener(this::jBtnRegistrarAtividadeActionPerformed);
+
+        jBtnTelaPrincipal.setText("Tela Principal");
+        jBtnTelaPrincipal.addActionListener(this::jBtnTelaPrincipalActionPerformed);
+
+        jBtnTelaNovaLista.setText("Nova Lista");
+        jBtnTelaNovaLista.addActionListener(this::jBtnTelaNovaListaActionPerformed);
+
+        jBtnConcluirAtividade.setText("Concluir Atividade Atual");
+        jBtnConcluirAtividade.addActionListener(this::jBtnConcluirAtividadeActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addComponent(jBtnConcluirAtividade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnRegistrarAtividade)
+                        .addGap(90, 90, 90))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBtnTelaPrincipal)
+                .addGap(33, 33, 33)
+                .addComponent(jBtnTelaNovaLista)
+                .addGap(47, 47, 47))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLNomeLista, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLTipoLista, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFNovaAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLAtividadeAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(124, 124, 124))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnTelaPrincipal)
+                    .addComponent(jBtnTelaNovaLista))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLNomeLista)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLTipoLista)
+                    .addComponent(jLAtividadeAtual))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFNovaAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnRegistrarAtividade)
+                    .addComponent(jBtnConcluirAtividade))
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -77,11 +201,37 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(450, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTelaPrincipalActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnTelaPrincipalActionPerformed
+
+    private void jBtnTelaNovaListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTelaNovaListaActionPerformed
+        TelaNovaLista tela = new TelaNovaLista(null);
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnTelaNovaListaActionPerformed
+
+    private void jBtnConcluirAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConcluirAtividadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnConcluirAtividadeActionPerformed
+
+    private void jBtnRegistrarAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRegistrarAtividadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnRegistrarAtividadeActionPerformed
+
+    private void jTFNovaAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNovaAtividadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNovaAtividadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,12 +255,25 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaGerenciarLista().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaGerenciarLista(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnConcluirAtividade;
+    private javax.swing.JButton jBtnRegistrarAtividade;
+    private javax.swing.JButton jBtnTelaNovaLista;
+    private javax.swing.JButton jBtnTelaPrincipal;
+    private javax.swing.JLabel jLAtividadeAtual;
     private javax.swing.JLabel jLCaio4breu;
+    private javax.swing.JLabel jLNomeLista;
     private javax.swing.JLabel jLNomeProjeto;
+    private javax.swing.JLabel jLTipoLista;
     private javax.swing.JPanel jPHeader;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTADescricao;
+    private javax.swing.JTable jTAtividades;
+    private javax.swing.JTextField jTFNovaAtividade;
     // End of variables declaration//GEN-END:variables
 }

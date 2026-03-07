@@ -1,7 +1,7 @@
-package caio4abreu.taskgrimoire.service;
+package caio4breu.taskgrimoire.service;
 
-import caio4abreu.taskgrimoire.model.Atividade;
-import caio4abreu.taskgrimoire.model.ListaDeAtividades;
+import caio4breu.taskgrimoire.model.Atividade;
+import caio4breu.taskgrimoire.model.ListaDeAtividades;
 
 /**
  *

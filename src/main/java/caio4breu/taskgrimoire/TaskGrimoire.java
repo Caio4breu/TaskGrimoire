@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package caio4abreu.taskgrimoire;
+package caio4breu.taskgrimoire;
 
 /**
  *

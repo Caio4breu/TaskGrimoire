@@ -1,8 +1,8 @@
-package caio4abreu.taskgrimoire.controller;
+package caio4breu.taskgrimoire.controller;
 
-import caio4abreu.taskgrimoire.model.ListaDeAtividades;
-import caio4abreu.taskgrimoire.model.TipoEstrutura;
-import caio4abreu.taskgrimoire.service.ListaService;
+import caio4breu.taskgrimoire.model.ListaDeAtividades;
+import caio4breu.taskgrimoire.model.TipoEstrutura;
+import caio4breu.taskgrimoire.service.ListaService;
 import java.util.List;
 
 /**

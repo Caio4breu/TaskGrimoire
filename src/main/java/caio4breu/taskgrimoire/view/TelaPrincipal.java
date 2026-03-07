@@ -1,7 +1,7 @@
-package caio4abreu.taskgrimoire.view;
+package caio4breu.taskgrimoire.view;
 
-import caio4abreu.taskgrimoire.controller.ListaController;
-import caio4abreu.taskgrimoire.model.ListaDeAtividades;
+import caio4breu.taskgrimoire.controller.ListaController;
+import caio4breu.taskgrimoire.model.ListaDeAtividades;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

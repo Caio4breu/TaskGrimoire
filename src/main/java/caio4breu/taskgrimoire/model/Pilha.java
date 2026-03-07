@@ -1,10 +1,10 @@
-package caio4abreu.taskgrimoire.model;
+package caio4breu.taskgrimoire.model;
 
 /**
  *
  * @author Caio 4breu
  */
-public class Fila {
+public class Pilha {
     No inicio = null;
     No fim = null;
 
@@ -13,33 +13,37 @@ public class Fila {
         p.setDado(dado);
         
         // Caso seja o primeiro valor da fila
-        if (inicio == null) {
+        if (inicio == null){
             inicio = p;
             fim = p;
             p.setProximo(null);
-        } else { // Caso já exista elementos na fila
+        } else {
             fim.setProximo(p);
             p.setProximo(null);
             fim = p;
         }
     }
 
-    Atividade consultar() {
-        if (inicio == null) {
+    public Atividade consultar() {
+        if (fim == null) {
             return null;
         }
         return inicio.getDado();
     }
-
     
     public Atividade excluir() {
-        No aux = inicio;
+        No aux = fim;
         
-        if (aux == fim && inicio != null) {
+        if(inicio == fim && fim != null) {
             inicio = null;
             fim = null;
         } else {
-            inicio = inicio.getProximo();
+            No temp = inicio;
+            while (temp.getProximo() != fim){
+                temp = temp.getProximo();
+            }
+            temp.setProximo(null);
+            fim = temp;
         }
         return aux.getDado();
     }

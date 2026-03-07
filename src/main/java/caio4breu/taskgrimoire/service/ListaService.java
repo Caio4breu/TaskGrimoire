@@ -1,9 +1,9 @@
-package caio4abreu.taskgrimoire.service;
+package caio4breu.taskgrimoire.service;
 
-import caio4abreu.taskgrimoire.model.ListaDeAtividades;
-import caio4abreu.taskgrimoire.model.TipoEstrutura;
-import caio4abreu.taskgrimoire.repositories.ListaRepository;
-import caio4abreu.taskgrimoire.repositories.ListaRepositoryImpl;
+import caio4breu.taskgrimoire.model.ListaDeAtividades;
+import caio4breu.taskgrimoire.model.TipoEstrutura;
+import caio4breu.taskgrimoire.repositories.ListaRepository;
+import caio4breu.taskgrimoire.repositories.ListaRepositoryImpl;
 import java.util.List;
 
 /**

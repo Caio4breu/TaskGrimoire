@@ -1,6 +1,6 @@
-package caio4abreu.taskgrimoire.repositories;
+package caio4breu.taskgrimoire.repositories;
 
-import caio4abreu.taskgrimoire.model.ListaDeAtividades;
+import caio4breu.taskgrimoire.model.ListaDeAtividades;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package caio4abreu.taskgrimoire.model;
+package caio4breu.taskgrimoire.model;
 
 
 /**

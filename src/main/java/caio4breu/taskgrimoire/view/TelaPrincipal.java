@@ -103,6 +103,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jBtnCriarLista.addActionListener(this::jBtnCriarListaActionPerformed);
 
         jBtnAbrirLista.setText("Abrir lista");
+        jBtnAbrirLista.addActionListener(this::jBtnAbrirListaActionPerformed);
 
         jBtnDeletarLista.setText("Deletar lista");
         jBtnDeletarLista.addActionListener(this::jBtnDeletarListaActionPerformed);
@@ -177,6 +178,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, mensagem);
         carregarListas();
     }//GEN-LAST:event_jBtnDeletarListaActionPerformed
+
+    private void jBtnAbrirListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAbrirListaActionPerformed
+        int linhaSelecionada = jTabelaListas.getSelectedRow();
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione uma lista para abrir.");
+            return;
+        }
+        String nome = (String) jTabelaListas.getValueAt(linhaSelecionada, 0);
+        TelaGerenciarLista tela = new TelaGerenciarLista(nome);
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnAbrirListaActionPerformed
 
     /**
      * @param args the command line arguments

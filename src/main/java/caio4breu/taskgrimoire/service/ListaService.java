@@ -3,6 +3,7 @@ package caio4breu.taskgrimoire.service;
 import caio4breu.taskgrimoire.model.ListaDeAtividades;
 import caio4breu.taskgrimoire.model.TipoEstrutura;
 import caio4breu.taskgrimoire.repositories.ListaRepository;
+import caio4breu.taskgrimoire.repositories.ListaRepositoryDB;
 import caio4breu.taskgrimoire.repositories.ListaRepositoryImpl;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @author Caio 4breu
  */
 public class ListaService {
-    private ListaRepository repository = new ListaRepositoryImpl();
+    private ListaRepository repository = new ListaRepositoryDB();
     
     public void criarLista(String nome, TipoEstrutura tipo){
         if (nome == null || nome.trim().isEmpty()) {

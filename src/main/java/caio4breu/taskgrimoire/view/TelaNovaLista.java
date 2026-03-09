@@ -231,7 +231,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
         String tipoSelecionado = (String) jCBTipoListas.getSelectedItem();
         
         if (tipoSelecionado.equals("---")) {
-            JOptionPane.showConfirmDialog(this, "Selecione um tipo de estrutura.");
+            JOptionPane.showMessageDialog(this, "Selecione um tipo de estrutura.");
             return;
         }
         

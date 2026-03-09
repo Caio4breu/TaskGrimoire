@@ -247,8 +247,12 @@ public class TelaNovaLista extends javax.swing.JFrame {
         
         if (telaPai != null) {
             telaPai.carregarListas();
+            this.dispose();
+        } else {
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
+            this.dispose();
         }
-        this.dispose();
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jCBTipoListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBTipoListasActionPerformed

@@ -33,6 +33,24 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         carregarDados();
         aplicarDesign();
+        
+        jTFNovaAtividade.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent e) {
+            if (jTFNovaAtividade.getText().equals("Registre uma nova atividade")) {
+                jTFNovaAtividade.setText("");
+                jTFNovaAtividade.setForeground(Color.decode("#E0E0E0"));
+            }
+        }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent e) {
+            if (jTFNovaAtividade.getText().isEmpty()) {
+                jTFNovaAtividade.setText("Registre uma nova atividade");
+                jTFNovaAtividade.setForeground(Color.decode("#888888"));
+            }
+        }
+    });
+
     }
     
     public void carregarDados(){

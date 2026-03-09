@@ -25,6 +25,24 @@ public class TelaNovaLista extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         jTAExplicativo.setEditable(false);
         aplicarDesign();
+        
+        jTFRecebeNomeLista.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (jTFRecebeNomeLista.getText().equals("Nome da nova lista")) {
+                    jTFRecebeNomeLista.setText("");
+                    jTFRecebeNomeLista.setForeground(Color.decode("#E0E0E0"));
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (jTFRecebeNomeLista.getText().isEmpty()) {
+                    jTFRecebeNomeLista.setText("Nome da nova lista");
+                    jTFRecebeNomeLista.setForeground(Color.decode("#888888"));
+                }
+            }
+        });
+        
     }
     
     private void aplicarDesign() {

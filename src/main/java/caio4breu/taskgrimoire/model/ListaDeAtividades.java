@@ -6,11 +6,14 @@ package caio4breu.taskgrimoire.model;
  * @author Caio 4breu
  */
 public class ListaDeAtividades {
+    private int id;
     private String nome;
     private TipoEstrutura tipo;
     private Fila fila;
     private Pilha pilha;
     
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getNome() { return nome; }
     public TipoEstrutura getTipo() { return tipo; }
 

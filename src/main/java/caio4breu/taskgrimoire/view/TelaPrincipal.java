@@ -2,6 +2,7 @@ package caio4breu.taskgrimoire.view;
 
 import caio4breu.taskgrimoire.controller.ListaController;
 import caio4breu.taskgrimoire.model.ListaDeAtividades;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         carregarListas();
+        aplicarDesign();
     }
 
     public void carregarListas() {
@@ -36,6 +38,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         jTabelaListas.setModel(model);
     }
+    
+    private void aplicarDesign(){
+        // Fundo fora dos paineis
+        getContentPane().setBackground(Color.decode("#0D0D1A"));
+        
+        // paineis
+        jPHeader.setBackground(Color.decode("#16213E"));
+        jPBody.setBackground(Color.decode("#16213E"));
+        
+        // labels
+        jLNomeProjeto.setForeground(Color.decode("#FFD700"));
+        jLCaio4breu.setForeground(Color.decode("#E0E0E0"));
+        
+        // labels
+        jLNomeProjeto.setForeground(Color.decode("#FFD700"));
+        jLCaio4breu.setForeground(Color.decode("#E0E0E0"));
+
+        // botoes
+        Color corBotao = Color.decode("#7B2FBE");
+        Color corTextoBotao = Color.decode("#FFD700");
+        jBtnCriarLista.setBackground(corBotao);
+        jBtnCriarLista.setForeground(corTextoBotao);
+        jBtnAbrirLista.setBackground(corBotao);
+        jBtnAbrirLista.setForeground(corTextoBotao);
+        jBtnDeletarLista.setBackground(corBotao);
+        jBtnDeletarLista.setForeground(corTextoBotao);
+
+        // tabela
+        jTabelaListas.setBackground(Color.decode("#1A1A2E"));
+        jTabelaListas.setForeground(Color.decode("#E0E0E0"));
+        jTabelaListas.setGridColor(Color.decode("#7B2FBE"));
+        jTabelaListas.getTableHeader().setBackground(Color.decode("#7B2FBE"));
+        jTabelaListas.getTableHeader().setForeground(Color.decode("#FFD700"));
+        jScrollPane.getViewport().setBackground(Color.decode("#1A1A2E"));
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -3,6 +3,7 @@ package caio4breu.taskgrimoire.view;
 import caio4breu.taskgrimoire.controller.ListaController;
 import caio4breu.taskgrimoire.model.TipoEstrutura;
 import javax.swing.JOptionPane;
+import java.awt.Color;
 
 /**
  *
@@ -22,7 +23,37 @@ public class TelaNovaLista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jTAExplicativo.setEditable(false);
+        aplicarDesign();
     }
+    
+    private void aplicarDesign() {
+        getContentPane().setBackground(Color.decode("#0D0D1A"));
+        jPHeader.setBackground(Color.decode("#1A1A2E"));
+        jPanel1.setBackground(Color.decode("#16213E"));
+
+        jLNomeProjeto.setForeground(Color.decode("#FFD700"));
+        jLCaio4breu.setForeground(Color.decode("#E0E0E0"));
+        jLabel1.setForeground(Color.decode("#FFD700"));
+
+        Color corBotao = Color.decode("#7B2FBE");
+        Color corTextoBotao = Color.decode("#FFD700");
+        jBtnConfirmar.setBackground(corBotao);
+        jBtnConfirmar.setForeground(corTextoBotao);
+        jBtnCancelar.setBackground(corBotao);
+        jBtnCancelar.setForeground(corTextoBotao);
+        jBtnTelaPrincipal.setBackground(corBotao);
+        jBtnTelaPrincipal.setForeground(corTextoBotao);
+        jBtnGerenciarListas.setBackground(corBotao);
+        jBtnGerenciarListas.setForeground(corTextoBotao);
+
+        jTFRecebeNomeLista.setBackground(Color.decode("#16213E"));
+        jTFRecebeNomeLista.setForeground(Color.decode("#E0E0E0"));
+        jTAExplicativo.setBackground(Color.decode("#1A1A2E"));
+        jTAExplicativo.setForeground(Color.decode("#E0E0E0"));
+        jCBTipoListas.setBackground(Color.decode("#7B2FBE"));
+        jCBTipoListas.setForeground(Color.decode("#FFD700"));
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

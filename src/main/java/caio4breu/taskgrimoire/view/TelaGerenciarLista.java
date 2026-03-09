@@ -10,6 +10,7 @@ import caio4breu.taskgrimoire.model.Atividade;
 import caio4breu.taskgrimoire.model.ListaDeAtividades;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
 
 /**
  *
@@ -30,6 +31,7 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         carregarDados();
+        aplicarDesign();
     }
     
     public void carregarDados(){
@@ -51,6 +53,41 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
         } else {
             jLAtividadeAtual.setText("Nenhuma atividade na lista");
         }
+    }
+    
+    private void aplicarDesign() {
+        getContentPane().setBackground(Color.decode("#0D0D1A"));
+        jPHeader.setBackground(Color.decode("#1A1A2E"));
+        jPanel1.setBackground(Color.decode("#16213E"));
+
+        jLNomeProjeto.setForeground(Color.decode("#FFD700"));
+        jLCaio4breu.setForeground(Color.decode("#E0E0E0"));
+        jLNomeLista.setForeground(Color.decode("#FFD700"));
+        jLTipoLista.setForeground(Color.decode("#E0E0E0"));
+        jLAtividadeAtual.setForeground(Color.decode("#E0E0E0"));
+
+        Color corBotao = Color.decode("#7B2FBE");
+        Color corTextoBotao = Color.decode("#FFD700");
+        jBtnTelaPrincipal.setBackground(corBotao);
+        jBtnTelaPrincipal.setForeground(corTextoBotao);
+        jBtnTelaNovaLista.setBackground(corBotao);
+        jBtnTelaNovaLista.setForeground(corTextoBotao);
+        jBtnRegistrarAtividade.setBackground(corBotao);
+        jBtnRegistrarAtividade.setForeground(corTextoBotao);
+        jBtnConcluirAtividade.setBackground(corBotao);
+        jBtnConcluirAtividade.setForeground(corTextoBotao);
+
+        jTAtividades.setBackground(Color.decode("#1A1A2E"));
+        jTAtividades.setForeground(Color.decode("#E0E0E0"));
+        jTAtividades.setGridColor(Color.decode("#7B2FBE"));
+        jTAtividades.getTableHeader().setBackground(Color.decode("#7B2FBE"));
+        jTAtividades.getTableHeader().setForeground(Color.decode("#FFD700"));
+        jScrollPane1.getViewport().setBackground(Color.decode("#1A1A2E"));
+
+        jTFNovaAtividade.setBackground(Color.decode("#16213E"));
+        jTFNovaAtividade.setForeground(Color.decode("#E0E0E0"));
+        jTADescricao.setBackground(Color.decode("#16213E"));
+        jTADescricao.setForeground(Color.decode("#E0E0E0"));
     }
 
     /**

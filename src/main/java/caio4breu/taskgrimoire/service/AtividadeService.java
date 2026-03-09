@@ -2,6 +2,7 @@ package caio4breu.taskgrimoire.service;
 
 import caio4breu.taskgrimoire.model.Atividade;
 import caio4breu.taskgrimoire.model.ListaDeAtividades;
+import caio4breu.taskgrimoire.repositories.AtividadeRepositoryDB;
 
 /**
  *
@@ -9,26 +10,28 @@ import caio4breu.taskgrimoire.model.ListaDeAtividades;
  */
 public class AtividadeService {
     private ListaService listaService = new ListaService();
-    
+    private AtividadeRepositoryDB atividadeRepository = new AtividadeRepositoryDB();
+
     public void adicionarAtividades(String nomeLista, String titulo, String descricao) {
         if (titulo == null || titulo.trim().isEmpty()) {
             throw new IllegalArgumentException("O título não pode estar vazio");
         }
         ListaDeAtividades lista = listaService.buscarLista(nomeLista);
         Atividade atividade = new Atividade(titulo, descricao);
-        lista.adicionar(atividade);
+        atividadeRepository.salvar(atividade, lista.getId());
     }
     
     public Atividade removerAtividades(String nomeLista) {
         ListaDeAtividades lista = listaService.buscarLista(nomeLista);
-        if (lista.espiar() == null) {
+        Atividade proxima = atividadeRepository.buscarProxima(lista.getId());
+        if (proxima == null) {
             throw new IllegalArgumentException("A lista está vazia.");
         }
-        return lista.remover();
+        return atividadeRepository.removerProxima(lista.getId(), lista.getTipo().toString());
     }
     
     public Atividade espiarAtividade(String nomeLista) {
         ListaDeAtividades lista = listaService.buscarLista(nomeLista);
-        return lista.espiar();
+        return atividadeRepository.buscarProxima(lista.getId());
     }
 }

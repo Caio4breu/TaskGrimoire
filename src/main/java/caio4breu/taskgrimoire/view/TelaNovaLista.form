@@ -194,6 +194,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome da nova lista"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFRecebeNomeListaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jCBTipoListas">
           <Properties>

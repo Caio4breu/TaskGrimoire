@@ -19,6 +19,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
+        setTitle("Task Grimoire");
         initComponents();
         this.setLocationRelativeTo(null);
         carregarListas();

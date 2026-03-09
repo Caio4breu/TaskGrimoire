@@ -19,6 +19,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
      * Creates new form TelaNovaLista
      */
     public TelaNovaLista(TelaPrincipal telaPai) {
+        setTitle("Task Grimoire");
         this.telaPai = telaPai;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -121,6 +122,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
         jLabel1.setText("Criação de novas listas");
 
         jTFRecebeNomeLista.setText("Nome da nova lista");
+        jTFRecebeNomeLista.addActionListener(this::jTFRecebeNomeListaActionPerformed);
 
         jCBTipoListas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Modo Fila", "Modo Pilha" }));
         jCBTipoListas.addActionListener(this::jCBTipoListasActionPerformed);
@@ -156,8 +158,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
                         .addGap(68, 68, 68)
                         .addComponent(jBtnTelaPrincipal)
                         .addGap(18, 18, 18)
-                        .addComponent(jBtnGerenciarListas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBtnGerenciarListas)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -251,6 +252,10 @@ public class TelaNovaLista extends javax.swing.JFrame {
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnGerenciarListasActionPerformed
+
+    private void jTFRecebeNomeListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFRecebeNomeListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFRecebeNomeListaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -27,6 +27,7 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
      * Creates new form TelaAdicionarAtividade
      */
     public TelaGerenciarLista(String nomeLista) {
+        setTitle("Task Grimoire");
         this.nomeLista = nomeLista;
         initComponents();
         this.setLocationRelativeTo(null);

@@ -28,6 +28,7 @@ public class TelaGerenciarLista extends javax.swing.JFrame {
     public TelaGerenciarLista(String nomeLista) {
         this.nomeLista = nomeLista;
         initComponents();
+        this.setLocationRelativeTo(null);
         carregarDados();
     }
     

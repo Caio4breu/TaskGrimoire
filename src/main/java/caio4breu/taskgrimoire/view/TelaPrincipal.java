@@ -19,6 +19,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
         carregarListas();
     }
 
@@ -164,6 +165,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jBtnCriarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCriarListaActionPerformed
         TelaNovaLista tela = new TelaNovaLista(this);
         tela.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnCriarListaActionPerformed
 
     private void jBtnDeletarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeletarListaActionPerformed

@@ -20,6 +20,7 @@ public class TelaNovaLista extends javax.swing.JFrame {
     public TelaNovaLista(TelaPrincipal telaPai) {
         this.telaPai = telaPai;
         initComponents();
+        this.setLocationRelativeTo(null);
         jTAExplicativo.setEditable(false);
     }
 

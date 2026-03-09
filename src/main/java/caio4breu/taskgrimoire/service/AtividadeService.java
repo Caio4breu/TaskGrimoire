@@ -3,6 +3,7 @@ package caio4breu.taskgrimoire.service;
 import caio4breu.taskgrimoire.model.Atividade;
 import caio4breu.taskgrimoire.model.ListaDeAtividades;
 import caio4breu.taskgrimoire.repositories.AtividadeRepositoryDB;
+import java.util.List;
 
 /**
  *
@@ -33,5 +34,10 @@ public class AtividadeService {
     public Atividade espiarAtividade(String nomeLista) {
         ListaDeAtividades lista = listaService.buscarLista(nomeLista);
         return atividadeRepository.buscarProxima(lista.getId());
+    }
+    
+    public List<Atividade> listarAtividades(String nomeLista) {
+       ListaDeAtividades lista = listaService.buscarLista(nomeLista);
+        return atividadeRepository.buscarTodas(lista.getId());
     }
 }

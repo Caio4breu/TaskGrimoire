@@ -2,6 +2,7 @@ package caio4breu.taskgrimoire.controller;
 
 import caio4breu.taskgrimoire.model.Atividade;
 import caio4breu.taskgrimoire.service.AtividadeService;
+import java.util.List;
 
 /**
  *
@@ -30,5 +31,9 @@ public class AtividadeController {
     
     public Atividade espiarAtividade(String nome){
             return atividade.espiarAtividade(nome);
+    }
+    
+    public List<Atividade> listarAtividades(String nomeLista) {
+        return atividade.listarAtividades(nomeLista);
     }
 }
